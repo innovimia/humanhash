@@ -2,7 +2,7 @@
   "name": "humanhash-innovimia",
   "version": "1.0.5",
   "description": "human-readable hashes with updated dependency",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
     "test": "node test.js"
   },
