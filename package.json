@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "human-readable hashes with updated dependency",
   "main": "index",
+  "typings": "index",
   "scripts": {
     "test": "node test.js"
   },
