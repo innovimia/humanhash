@@ -1,4 +1,3 @@
-export = HumanHasher;
 declare class HumanHasher {
     /**
      * Transforms hex digests to human-readable strings.
@@ -46,3 +45,5 @@ declare class HumanHasher {
     _compress(bytes: any[], target: number): any[];
 }
 //# sourceMappingURL=index.d.ts.map
+
+export = HumanHasher;
