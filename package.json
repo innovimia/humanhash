@@ -3,7 +3,7 @@
   "version": "1.0.5",
   "description": "human-readable hashes with updated dependency",
   "main": "index",
-  "typings": "index",
+  "types": "index",
   "scripts": {
     "test": "node test.js"
   },
@@ -18,5 +18,8 @@
   },
   "devDependencies": {
     "typescript": "^5.0.4"
-  }
+  },
+  "files": [
+    "index.js, index.d.ts"
+  ]
 }

@@ -44,6 +44,7 @@ declare class HumanHasher {
      */
     _compress(bytes: any[], target: number): any[];
 }
-//# sourceMappingURL=index.d.ts.map
 
+//# sourceMappingURL=index.d.ts.map
 export = HumanHasher;
+
