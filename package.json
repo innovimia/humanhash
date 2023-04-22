@@ -14,5 +14,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/innovimia/humanhash.git"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
   }
 }
