@@ -2,8 +2,8 @@
  * humanhash: Human-readable representations of digests.
  */
 
-var uuidv1 = require("uuid/v1")
-var uuidv4 = require("uuid/v4")
+const { v1: uuidv1 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 var DEFAULT_WORDLIST = [
     'ack', 'alabama', 'alanine', 'alaska', 'alpha', 'angel', 'apart', 'april',
@@ -59,7 +59,7 @@ class HumanHasher {
      * @param {Array} wordlist A list of exactly 256 words to choose from
      */
     constructor(wordlist = DEFAULT_WORDLIST) {
-        if(wordlist.length !== 256) throw new Error("Wordlist must have exactly 256 items")
+        if (wordlist.length !== 256) throw new Error("Wordlist must have exactly 256 items")
         this.wordlist = wordlist
     }
 
@@ -76,7 +76,7 @@ class HumanHasher {
     humanize(hexdigest, words = 4, separator = '-') {
         var pairs = hexdigest.match(/(..?)/g)
         var bytes = pairs.map((x) => parseInt(x, 16))
-        
+
         var compressed = this._compress(bytes, words)
 
         return compressed.map((x) => this.wordlist[x]).join(separator)
@@ -91,7 +91,7 @@ class HumanHasher {
      */
     uuid(words = 4, seperator = '-', version = 4) {
         var uuid = ((version == 4) ? uuidv4() : uuidv1()).replace(new RegExp("-", 'g'), "")
-        return {humanhash: this.humanize(uuid, words, seperator), uuid: uuid}
+        return { humanhash: this.humanize(uuid, words, seperator), uuid: uuid }
     }
 
     /**
@@ -102,19 +102,19 @@ class HumanHasher {
      */
     _compress(bytes, target) {
         var length = bytes.length
-        if(target > length) throw new Error("Fewer input bytes than requested output")
+        if (target > length) throw new Error("Fewer input bytes than requested output")
 
         // Calculate the segment size (divide and round down)
-        var seg_size = length/target>>0
+        var seg_size = length / target >> 0
 
         // Split 'bytes' array into 'target' number of segments.
         var segments = []
-        for(let i = 0; i<seg_size*target; i+= seg_size) {
-            segments.push(bytes.slice(i, i+seg_size))
+        for (let i = 0; i < seg_size * target; i += seg_size) {
+            segments.push(bytes.slice(i, i + seg_size))
         }
 
         // Catch any left-over bytes in the last segment.
-        segments[segments.length - 1] = segments[segments.length - 1].concat(bytes.slice(target*seg_size))
+        segments[segments.length - 1] = segments[segments.length - 1].concat(bytes.slice(target * seg_size))
 
         var checksums = segments.map((x) => x.reduce((acc, curr) => acc ^ curr))
         return checksums
