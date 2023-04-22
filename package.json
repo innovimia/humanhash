@@ -1,7 +1,7 @@
 {
-  "name": "humanhash",
-  "version": "1.0.4",
-  "description": "human-readable hashes",
+  "name": "humanhash-innovimia",
+  "version": "1.0.5",
+  "description": "human-readable hashes with updated dependency",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
@@ -9,10 +9,10 @@
   "author": "Sebastian Strempfer",
   "license": "Unlicense",
   "dependencies": {
-    "uuid": "^3.3.2"
+    "uuid": "^8.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SEBv15/humanhash.git"
+    "url": "https://github.com/innovimia/humanhash.git"
   }
 }
